@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block titulo %} Listado Alumnos {% endblock %}
+
+{% block main %}
+
+    <h2> Listado alumnos </h2>
+
+     {% if lista_alumnos %}
+            <p>¡Excelente! Tenemos los siguientes alumnos inscritos:</p>
+            <div>
+                <ol>
+                    {% for alumno in lista_alumnos %}
+                        <li>{{ alumno }}</li>
+                    {% endfor %}
+                </ol>
+            </div>
+        {% else %}
+            <p><strong>AVISO:</strong> Actualmente no hay alumnos para listar.</p>
+        {% endif %}
+
+{% endblock %}

@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block titulo %} Portal Cursos {% endblock %}
+
+{% block main %}
+
+    <h1> Contenido Cursos </h1>
+    <nav>
+    <ul>
+        <li><a href="{% url 'lista_cursos' %}">Lista de Cursos</a></li>
+        <li><a href="{% url 'agregar_cursos' %}">Agregar Cursos</a></li>
+    </ul>
+    </nav>
+
+{% endblock %}

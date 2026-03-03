@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block titulo %} Listado Alumnos {% endblock %}
+
+{% block main %}
+
+    <h2> Listado Profesores </h2>
+
+     {% if lista_profesores %}
+            <p>¡Excelente! Tenemos los siguientes profesores disponible:</p>
+            <div>
+                <ol>
+                    {% for profesores in lista_profesores %}
+                        <li>{{ profesores }}</li>
+                    {% endfor %}
+                </ol>
+            </div>
+        {% else %}
+            <p><strong>AVISO:</strong> Actualmente no hay profesores para listar.</p>
+        {% endif %}
+
+{% endblock %}

@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block titulo %} Portal Cursos {% endblock %}
+
+{% block main %}
+
+    <h1> Contenido Cursos </h1>
+    {% if lista_cursos %}
+            <p>¡Excelente! Tenemos los siguientes cursos disponible:</p>
+            <div>
+                <ol>
+                    {% for cursos in lista_cursos %}
+                        <li>{{ cursos }}</li>
+                    {% endfor %}
+                </ol>
+            </div>
+        {% else %}
+            <p><strong>AVISO:</strong> Actualmente no hay cursos para listar.</p>
+        {% endif %}
+
+{% endblock %}
