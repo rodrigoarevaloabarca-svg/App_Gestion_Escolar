@@ -36,10 +36,7 @@ urlpatterns = [
     path('reglamento/', views.reglamento, name="reglamento"),
     path('directorio_docente/', views.directorio_docente, name="directorio_docente"),
 
-
 ]
-
-
 
 # Configuración de media para desarrollo
 if settings.DEBUG:

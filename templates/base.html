@@ -24,7 +24,7 @@
                         </div>
                             <h1 class="text-navy-deep dark:text-white text-xl font-bold tracking-tight">Sistema de Gestión Escolar (SGE)</h1>
                     </div>
-                    <nav class="hidden md:flex items-center gap-8">
+                    <nav class=" md:flex items-center gap-8">
                         <a class="text-navy-deep dark:text-slate-300 text-sm font-semibold hover:text-primary transition-colors" href="{% url 'base' %}">Inicio</a>
                         <a class="text-muted-blue dark:text-slate-400 text-sm font-medium hover:text-primary transition-colors" href="{% url 'portal_alumnos' %}">Alumnos</a>
                         <a class="text-muted-blue dark:text-slate-400 text-sm font-medium hover:text-primary transition-colors" href="{% url 'portal_cursos' %}">Cursos</a>
@@ -32,22 +32,15 @@
                     </nav>
                 </div>
                 <div class="flex items-center gap-4">
-                    <div class="hidden sm:flex items-center bg-soft-grey dark:bg-slate-800 rounded-lg px-3 py-1.5 border border-transparent focus-within:border-primary/30 transition-all">
-                        <span class="material-symbols-outlined text-muted-blue text-lg">search</span>
-                        <input class="bg-transparent border-none focus:ring-0 text-sm w-40 lg:w-64 placeholder:text-muted-blue" placeholder="Buscar expediente..." type="text"/>
+
+                    <div class="text-navy-deep dark:text-slate-300 text-sm font-semibold hover:text-primary transition-colors">
+                        <form method="post" action="{% url 'logout' %}">
+                                {% csrf_token %}
+                                <button type="submit">Cerrar Sesión</button>
+                        </form>
                     </div>
-                    <div class="flex items-center gap-2">
-                        <button class="p-2 rounded-lg bg-soft-grey dark:bg-slate-800 text-navy-deep dark:text-slate-200 hover:bg-primary/10 hover:text-primary transition-colors relative">
-                            <span class="material-symbols-outlined">notifications</span>
-                            <span class="absolute top-2 right-2 size-2 bg-red-500 rounded-full border-2 border-white dark:border-slate-800"></span>
-                        </button>
-                        <button class="p-2 rounded-lg bg-soft-grey dark:bg-slate-800 text-navy-deep dark:text-slate-200 hover:bg-primary/10 hover:text-primary transition-colors">
-                            <span class="material-symbols-outlined">settings</span>
-                        </button>
-                    </div>
-                    <div class="size-10 rounded-full bg-primary/20 border-2 border-primary/10 overflow-hidden">
-                    <img class="w-full h-full object-cover" data-alt="User profile administrator portrait" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDxbaw44OmDqc13fxAiTrWFnRBx5oJRyL7sDT4SVdAnNNbCPvUPtYTTpp2u40twt1JOBuiRo3b9IxeXKDUkqpX_OaDT3v7lJU7E5KdG-CbST8z8OrDEqnQQzZhT4gBjKDWr0yk5MYEIR6KRry2rvtWlmsZqPv7WHdaCDH9dxb0nB9XzKm1JLue9X8xn3ncaiWflEjCUuDYW4UISvPzKxa9MI6LD5wG5WjBj5F3LhSs6qwtqfexIPPpymOOeIyt_HaGWmy3BtsclyuBz"/>
-                    </div>
+
+
                 </div>
             </div>
         </header>
