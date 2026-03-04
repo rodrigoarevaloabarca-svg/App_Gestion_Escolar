@@ -1,0 +1,28 @@
+{% extends "admin/base.html" %}
+
+{% load static %}
+
+{% block branding %}
+<h1 id="site-name">
+    <a href="{% url 'admin:index' %}">Sistema de Gestión Escolar (SGE)</a>
+</h1>
+{% endblock %}
+
+{% block extrahead %}
+<style>
+    /* Color de fondo del encabezado principal */
+    #header {
+        background: #003366; /* Azul corporativo */
+    }
+
+    /* Color del título */
+    #site-name a {
+        color: #FFD700; /* Dorado */
+    }
+
+    /* Ajuste de la sub-barra de navegación */
+    #nav-sidebar, .nav-sidebar {
+        background-color: #002244;
+    }
+</style>
+{% endblock %}
