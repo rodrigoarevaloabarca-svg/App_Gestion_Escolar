@@ -3,7 +3,7 @@ from .models import Alumno
 
 @admin.register(Alumno)
 class AlumnoAdmin(admin.ModelAdmin):
-    list_display = ('rut', 'nombre', 'apellido', 'correo_electronico')
+    list_display = ('rut', 'nombre', 'apellido','fecha_nacimiento', 'correo_electronico')
     search_fields = ('rut', 'nombre', 'apellido')
 
 

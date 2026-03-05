@@ -7,50 +7,50 @@
     <!-- Left Sidebar (Col 1-2) -->
     <aside class="md:col-span-3 lg:col-span-2 border-r border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 p-4">
         <div class="flex flex-col h-full justify-between">
-        <div class="flex flex-col gap-6">
-            <div class="px-3">
-                <p class="text-xs font-bold text-slate-400 uppercase tracking-widest">Menú Principal</p>
+            <div class="flex flex-col gap-6">
+                <div class="px-3">
+                    <p class="text-xs font-bold text-slate-400 uppercase tracking-widest">Gestión de Alumnos</p>
+                </div>
+                <nav class="flex flex-col gap-1">
+                    <a class="flex items-center gap-3 px-3 py-3 rounded-xl bg-primary/10 text-primary font-semibold" href="#">
+                        <span class="material-symbols-outlined">dashboard</span>
+                        <span class="text-sm">Vista General</span>
+                    </a>
+                    <a class="flex items-center gap-3 px-3 py-3 rounded-xl text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800 transition-all group" href="{% url 'agregar_alumno' %}">
+                        <span class="material-symbols-outlined group-hover:text-primary">person_add</span>
+                        <span class="text-sm">Agregar Alumno</span>
+                    </a>
+                    <a class="flex items-center gap-3 px-3 py-3 rounded-xl text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800 transition-all group" href="{% url 'lista_alumnos' %}">
+                        <span class="material-symbols-outlined group-hover:text-primary">groups</span>
+                        <span class="text-sm">Lista de Alumnos</span>
+                    </a>
+                    <a class="flex items-center gap-3 px-3 py-3 rounded-xl text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800 transition-all group" href="#">
+                        <span class="material-symbols-outlined group-hover:text-primary">edit_square</span>
+                        <span class="text-sm">Modificar Datos</span>
+                    </a>
+                    <a class="flex items-center gap-3 px-3 py-3 rounded-xl text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800 transition-all group" href="#">
+                        <span class="material-symbols-outlined group-hover:text-primary">manage_search</span>
+                        <span class="text-sm">Consultas</span>
+                    </a>
+                </nav>
+                <div class="px-3 mt-4">
+                     <p class="text-xs font-bold text-slate-400 uppercase tracking-widest">Académico</p>
+                </div>
+                <nav class="flex flex-col gap-1">
+                    <a class="flex items-center gap-3 px-3 py-3 rounded-xl text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800 transition-all group" href="#">
+                        <span class="material-symbols-outlined group-hover:text-primary">calendar_month</span>
+                        <span class="text-sm">Horarios</span>
+                    </a>
+                    <a class="flex items-center gap-3 px-3 py-3 rounded-xl text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800 transition-all group" href="#">
+                        <span class="material-symbols-outlined group-hover:text-primary">grade</span>
+                        <span class="text-sm">Calificaciones</span>
+                    </a>
+                </nav>
             </div>
-            <nav class="flex flex-col gap-1">
-                <a class="flex items-center gap-3 px-3 py-3 rounded-xl bg-primary/10 text-primary font-semibold" href="#">
-                    <span class="material-symbols-outlined">dashboard</span>
-                    <span class="text-sm">Vista General</span>
-                </a>
-                <a class="flex items-center gap-3 px-3 py-3 rounded-xl text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800 transition-all group" href="{% url 'agregar_alumno' %}">
-                    <span class="material-symbols-outlined group-hover:text-primary">person_add</span>
-                    <span class="text-sm">Agregar Alumno</span>
-                </a>
-                <a class="flex items-center gap-3 px-3 py-3 rounded-xl text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800 transition-all group" href="{% url 'lista_alumnos' %}">
-                    <span class="material-symbols-outlined group-hover:text-primary">groups</span>
-                    <span class="text-sm">Lista de Alumnos</span>
-                </a>
-                <a class="flex items-center gap-3 px-3 py-3 rounded-xl text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800 transition-all group" href="#">
-                    <span class="material-symbols-outlined group-hover:text-primary">edit_square</span>
-                    <span class="text-sm">Modificar Datos</span>
-                </a>
-                <a class="flex items-center gap-3 px-3 py-3 rounded-xl text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800 transition-all group" href="#">
-                    <span class="material-symbols-outlined group-hover:text-primary">manage_search</span>
-                    <span class="text-sm">Consultas</span>
-                </a>
-            </nav>
-            <div class="px-3 mt-4">
-                 <p class="text-xs font-bold text-slate-400 uppercase tracking-widest">Académico</p>
-            </div>
-            <nav class="flex flex-col gap-1">
-                <a class="flex items-center gap-3 px-3 py-3 rounded-xl text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800 transition-all group" href="#">
-                    <span class="material-symbols-outlined group-hover:text-primary">calendar_month</span>
-                    <span class="text-sm">Horarios</span>
-                </a>
-                <a class="flex items-center gap-3 px-3 py-3 rounded-xl text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800 transition-all group" href="#">
-                    <span class="material-symbols-outlined group-hover:text-primary">grade</span>
-                    <span class="text-sm">Calificaciones</span>
-                </a>
-            </nav>
-        </div>
-        <button class="w-full flex items-center justify-center gap-2 rounded-xl h-12 px-4 bg-primary text-white text-sm font-bold tracking-wide shadow-lg shadow-primary/30 hover:bg-primary/90 transition-all">
-        <span class="material-symbols-outlined">add_circle</span>
-        <span>Nuevo Registro</span>
-        </button>
+            <button class="w-full flex items-center justify-center gap-2 rounded-xl h-12 px-4 bg-primary text-white text-sm font-bold tracking-wide shadow-lg shadow-primary/30 hover:bg-primary/90 transition-all">
+            <span class="material-symbols-outlined">add_circle</span>
+            <span>Nuevo Registro</span>
+            </button>
     </div>
     </aside>
     <!-- Central Section (Col 3-9) -->
