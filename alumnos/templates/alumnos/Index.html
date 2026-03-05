@@ -3,13 +3,253 @@
 {% block titulo %} Portal Alumnos {% endblock %}
 
 {% block main %}
-
-    <h1> Contenido Alumnos </h1>
-    <nav>
-    <ul>
-        <li><a href="{% url 'lista_alumnos' %}">Lista de Alumnos</a></li>
-        <li><a href="{% url 'agregar_alumno' %}">Agregar Alumno</a></li>
-    </ul>
-    </nav>
-
+<main class="grid grid-cols-1 md:grid-cols-12 gap-0 min-h-[calc(100vh-64px)]">
+    <!-- Left Sidebar (Col 1-2) -->
+    <aside class="md:col-span-3 lg:col-span-2 border-r border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 p-4">
+        <div class="flex flex-col h-full justify-between">
+        <div class="flex flex-col gap-6">
+            <div class="px-3">
+                <p class="text-xs font-bold text-slate-400 uppercase tracking-widest">Menú Principal</p>
+            </div>
+            <nav class="flex flex-col gap-1">
+                <a class="flex items-center gap-3 px-3 py-3 rounded-xl bg-primary/10 text-primary font-semibold" href="#">
+                    <span class="material-symbols-outlined">dashboard</span>
+                    <span class="text-sm">Vista General</span>
+                </a>
+                <a class="flex items-center gap-3 px-3 py-3 rounded-xl text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800 transition-all group" href="{% url 'agregar_alumno' %}">
+                    <span class="material-symbols-outlined group-hover:text-primary">person_add</span>
+                    <span class="text-sm">Agregar Alumno</span>
+                </a>
+                <a class="flex items-center gap-3 px-3 py-3 rounded-xl text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800 transition-all group" href="{% url 'lista_alumnos' %}">
+                    <span class="material-symbols-outlined group-hover:text-primary">groups</span>
+                    <span class="text-sm">Lista de Alumnos</span>
+                </a>
+                <a class="flex items-center gap-3 px-3 py-3 rounded-xl text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800 transition-all group" href="#">
+                    <span class="material-symbols-outlined group-hover:text-primary">edit_square</span>
+                    <span class="text-sm">Modificar Datos</span>
+                </a>
+                <a class="flex items-center gap-3 px-3 py-3 rounded-xl text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800 transition-all group" href="#">
+                    <span class="material-symbols-outlined group-hover:text-primary">manage_search</span>
+                    <span class="text-sm">Consultas</span>
+                </a>
+            </nav>
+            <div class="px-3 mt-4">
+                 <p class="text-xs font-bold text-slate-400 uppercase tracking-widest">Académico</p>
+            </div>
+            <nav class="flex flex-col gap-1">
+                <a class="flex items-center gap-3 px-3 py-3 rounded-xl text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800 transition-all group" href="#">
+                    <span class="material-symbols-outlined group-hover:text-primary">calendar_month</span>
+                    <span class="text-sm">Horarios</span>
+                </a>
+                <a class="flex items-center gap-3 px-3 py-3 rounded-xl text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800 transition-all group" href="#">
+                    <span class="material-symbols-outlined group-hover:text-primary">grade</span>
+                    <span class="text-sm">Calificaciones</span>
+                </a>
+            </nav>
+        </div>
+        <button class="w-full flex items-center justify-center gap-2 rounded-xl h-12 px-4 bg-primary text-white text-sm font-bold tracking-wide shadow-lg shadow-primary/30 hover:bg-primary/90 transition-all">
+        <span class="material-symbols-outlined">add_circle</span>
+        <span>Nuevo Registro</span>
+        </button>
+    </div>
+    </aside>
+    <!-- Central Section (Col 3-9) -->
+    <section class="md:col-span-6 lg:col-span-7 p-6 overflow-y-auto">
+        <div class="max-w-5xl mx-auto space-y-8">
+            <div class="flex flex-col gap-1">
+                <h1 class="text-3xl font-black text-slate-900 dark:text-slate-100">Panel de Control</h1>
+                <p class="text-slate-500 dark:text-slate-400">Resumen general del estado académico y administrativo de la institución.</p>
+            </div>
+            <!-- Stats Grid -->
+            <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+                <div class="bg-white dark:bg-slate-900 p-6 rounded-xl border border-slate-200 dark:border-slate-800 shadow-sm flex flex-col gap-2">
+                    <div class="flex items-center justify-between">
+                        <span class="text-slate-500 text-sm font-medium">Total Estudiantes</span>
+                        <span class="material-symbols-outlined text-primary bg-primary/10 p-2 rounded-lg">groups</span>
+                    </div>
+                    <p class="text-3xl font-bold text-slate-900 dark:text-slate-100">1,250</p>
+                    <div class="flex items-center gap-1 text-emerald-600 text-sm font-semibold">
+                        <span class="material-symbols-outlined text-sm">trending_up</span>
+                        <span>+2.5% este mes</span>
+                    </div>
+                </div>
+                <div class="bg-white dark:bg-slate-900 p-6 rounded-xl border border-slate-200 dark:border-slate-800 shadow-sm flex flex-col gap-2">
+                    <div class="flex items-center justify-between">
+                        <span class="text-slate-500 text-sm font-medium">Asistencia Hoy</span>
+                        <span class="material-symbols-outlined text-emerald-500 bg-emerald-500/10 p-2 rounded-lg">how_to_reg</span>
+                    </div>
+                    <p class="text-3xl font-bold text-slate-900 dark:text-slate-100">94.2%</p>
+                    <div class="flex items-center gap-1 text-emerald-600 text-sm font-semibold">
+                        <span class="material-symbols-outlined text-sm">trending_up</span>
+                        <span>+0.8% vs ayer</span>
+                    </div>
+                </div>
+                <div class="bg-white dark:bg-slate-900 p-6 rounded-xl border border-slate-200 dark:border-slate-800 shadow-sm flex flex-col gap-2">
+                    <div class="flex items-center justify-between">
+                        <span class="text-slate-500 text-sm font-medium">Pendientes Pago</span>
+                        <span class="material-symbols-outlined text-amber-500 bg-amber-500/10 p-2 rounded-lg">payments</span>
+                    </div>
+                    <p class="text-3xl font-bold text-slate-900 dark:text-slate-100">45</p>
+                    <div class="flex items-center gap-1 text-rose-600 text-sm font-semibold">
+                        <span class="material-symbols-outlined text-sm">trending_down</span>
+                        <span>-5% vs mes ant.</span>
+                    </div>
+                </div>
+            </div>
+            <!-- Recent Activity Table -->
+            <div class="bg-white dark:bg-slate-900 rounded-xl border border-slate-200 dark:border-slate-800 shadow-sm overflow-hidden">
+                <div class="px-6 py-4 border-b border-slate-200 dark:border-slate-800 flex justify-between items-center">
+                    <h3 class="font-bold text-lg">Actividad Reciente</h3>
+                    <button class="text-primary text-sm font-semibold hover:underline">Ver todo</button>
+                </div>
+                <div class="overflow-x-auto">
+                    <table class="w-full text-left text-sm">
+                        <thead class="bg-slate-50 dark:bg-slate-800 text-slate-500 uppercase text-xs">
+                            <tr>
+                                <th class="px-6 py-3 font-semibold">Alumno</th>
+                                <th class="px-6 py-3 font-semibold">Actividad</th>
+                                <th class="px-6 py-3 font-semibold">Grado</th>
+                                <th class="px-6 py-3 font-semibold">Fecha</th>
+                                <th class="px-6 py-3 font-semibold">Estado</th>
+                            </tr>
+                        </thead>
+                        <tbody class="divide-y divide-slate-100 dark:divide-slate-800">
+                            <tr class="hover:bg-slate-50 dark:hover:bg-slate-800/50 transition-colors">
+                                <td class="px-6 py-4">
+                                    <div class="flex items-center gap-3">
+                                    <div class="size-8 rounded-full bg-slate-200 flex items-center justify-center text-[10px]" data-alt="Perfil de Carlos Ruiz">CR</div>
+                                        <span class="font-medium">Carlos Ruiz</span>
+                                    </div>
+                                </td>
+                                <td class="px-6 py-4">Inscripción Completada</td>
+                                <td class="px-6 py-4">4to Secundaria</td>
+                                <td class="px-6 py-4 text-slate-500">Hoy, 10:45 AM</td>
+                                <td class="px-6 py-4">
+                                <span class="px-2 py-1 rounded-full bg-emerald-100 text-emerald-700 text-xs font-bold uppercase">Éxito</span>
+                                </td>
+                            </tr>
+                            <tr class="hover:bg-slate-50 dark:hover:bg-slate-800/50 transition-colors">
+                                <td class="px-6 py-4">
+                                    <div class="flex items-center gap-3">
+                                    <div class="size-8 rounded-full bg-slate-200 flex items-center justify-center text-[10px]" data-alt="Perfil de Ana Belén">AB</div>
+                                    <span class="font-medium">Ana Belén</span>
+                                    </div>
+                                </td>
+                                <td class="px-6 py-4">Beca Aprobada</td>
+                                <td class="px-6 py-4">2do Primaria</td>
+                                <td class="px-6 py-4 text-slate-500">Hoy, 09:12 AM</td>
+                                <td class="px-6 py-4">
+                                <span class="px-2 py-1 rounded-full bg-emerald-100 text-emerald-700 text-xs font-bold uppercase">Éxito</span>
+                                </td>
+                            </tr>
+                            <tr class="hover:bg-slate-50 dark:hover:bg-slate-800/50 transition-colors">
+                                <td class="px-6 py-4">
+                                    <div class="flex items-center gap-3">
+                                    <div class="size-8 rounded-full bg-slate-200 flex items-center justify-center text-[10px]" data-alt="Perfil de Jorge Luis">JL</div>
+                                    <span class="font-medium">Jorge Luis</span>
+                                    </div>
+                                </td>
+                                <td class="px-6 py-4">Reporte de Conducta</td>
+                                <td class="px-6 py-4">5to Secundaria</td>
+                                <td class="px-6 py-4 text-slate-500">Ayer, 16:30 PM</td>
+                                <td class="px-6 py-4">
+                                <span class="px-2 py-1 rounded-full bg-amber-100 text-amber-700 text-xs font-bold uppercase">Pendiente</span>
+                                </td>
+                            </tr>
+                            <tr class="hover:bg-slate-50 dark:hover:bg-slate-800/50 transition-colors">
+                                <td class="px-6 py-4">
+                                    <div class="flex items-center gap-3">
+                                    <div class="size-8 rounded-full bg-slate-200 flex items-center justify-center text-[10px]" data-alt="Perfil de Marta Díaz">MD</div>
+                                    <span class="font-medium">Marta Díaz</span>
+                                </div>
+                                </td>
+                                <td class="px-6 py-4">Cambio de Turno</td>
+                                <td class="px-6 py-4">3er Primaria</td>
+                                <td class="px-6 py-4 text-slate-500">Ayer, 14:15 PM</td>
+                                <td class="px-6 py-4">
+                                <span class="px-2 py-1 rounded-full bg-blue-100 text-blue-700 text-xs font-bold uppercase">Proceso</span>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Right Section (Col 10-12) -->
+    <aside class="md:col-span-3 lg:col-span-3 border-l border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 p-6 overflow-y-auto">
+        <div class="space-y-6">
+            <div class="flex items-center justify-between">
+                <h3 class="text-lg font-bold">Noticias y Circulares</h3>
+                <span class="material-symbols-outlined text-slate-400">campaign</span>
+            </div>
+            <div class="space-y-4">
+            <!-- Circular Item -->
+                <div class="p-4 rounded-xl bg-slate-50 dark:bg-slate-800/50 border border-slate-100 dark:border-slate-800 hover:border-primary transition-all cursor-pointer">
+                    <div class="flex justify-between items-start mb-2">
+                        <span class="px-2 py-0.5 rounded bg-primary text-white text-[10px] font-bold uppercase">Importante</span>
+                        <span class="text-xs text-slate-500">12 Oct</span>
+                    </div>
+                    <h4 class="text-sm font-bold mb-1">Cierre de Calificaciones Q1</h4>
+                    <p class="text-xs text-slate-500 leading-relaxed">Se les recuerda a todos los docentes que el portal para el primer quimestre cierra este viernes.</p>
+                </div>
+                <!-- Circular Item -->
+                <div class="p-4 rounded-xl bg-slate-50 dark:bg-slate-800/50 border border-slate-100 dark:border-slate-800 hover:border-primary transition-all cursor-pointer">
+                    <div class="flex justify-between items-start mb-2">
+                        <span class="px-2 py-0.5 rounded bg-amber-500 text-white text-[10px] font-bold uppercase">Administración</span>
+                        <span class="text-xs text-slate-500">10 Oct</span>
+                    </div>
+                    <h4 class="text-sm font-bold mb-1">Mantenimiento de Servidores</h4>
+                    <p class="text-xs text-slate-500 leading-relaxed">El sistema no estará disponible el domingo de 2:00 AM a 6:00 AM por actualización.</p>
+                </div>
+                <!-- Circular Item -->
+                <div class="p-4 rounded-xl bg-slate-50 dark:bg-slate-800/50 border border-slate-100 dark:border-slate-800 hover:border-primary transition-all cursor-pointer">
+                    <div class="flex justify-between items-start mb-2">
+                        <span class="px-2 py-0.5 rounded bg-emerald-500 text-white text-[10px] font-bold uppercase">Evento</span>
+                        <span class="text-xs text-slate-500">08 Oct</span>
+                    </div>
+                    <h4 class="text-sm font-bold mb-1">Día de la Familia 2023</h4>
+                    <p class="text-xs text-slate-500 leading-relaxed">Cronograma oficial para el evento deportivo de integración institucional.</p>
+                </div>
+                <!-- Circular Item -->
+                <div class="p-4 rounded-xl bg-slate-50 dark:bg-slate-800/50 border border-slate-100 dark:border-slate-800 hover:border-primary transition-all cursor-pointer">
+                    <div class="flex justify-between items-start mb-2">
+                        <span class="px-2 py-0.5 rounded bg-slate-400 text-white text-[10px] font-bold uppercase">General</span>
+                        <span class="text-xs text-slate-500">05 Oct</span>
+                    </div>
+                    <h4 class="text-sm font-bold mb-1">Nuevos Uniformes</h4>
+                    <p class="text-xs text-slate-500 leading-relaxed">Guía visual sobre el uso correcto del uniforme de invierno a partir de noviembre.</p>
+                </div>
+            </div>
+            <button class="w-full py-3 text-sm font-bold text-slate-500 border-2 border-dashed border-slate-200 dark:border-slate-800 rounded-xl hover:text-primary hover:border-primary transition-all">
+                                    Cargar más circulares
+                                </button>
+            <div class="pt-6 border-t border-slate-200 dark:border-slate-800">
+                <h4 class="text-sm font-bold mb-4">Próximos Eventos</h4>
+                <div class="space-y-4">
+                    <div class="flex gap-4">
+                        <div class="flex flex-col items-center justify-center size-12 bg-primary/10 rounded-lg text-primary">
+                            <span class="text-lg font-bold leading-none">15</span>
+                            <span class="text-[10px] font-bold uppercase">Oct</span>
+                        </div>
+                        <div class="flex-1">
+                            <p class="text-sm font-bold">Junta de Profesores</p>
+                            <p class="text-xs text-slate-500">08:00 AM - Sala B</p>
+                        </div>
+                    </div>
+                    <div class="flex gap-4">
+                        <div class="flex flex-col items-center justify-center size-12 bg-primary/10 rounded-lg text-primary">
+                            <span class="text-lg font-bold leading-none">20</span>
+                            <span class="text-[10px] font-bold uppercase">Oct</span>
+                        </div>
+                        <div class="flex-1">
+                            <p class="text-sm font-bold">Entrega de Reportes</p>
+                            <p class="text-xs text-slate-500">Todo el día - Online</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </aside>
+</main>
 {% endblock %}

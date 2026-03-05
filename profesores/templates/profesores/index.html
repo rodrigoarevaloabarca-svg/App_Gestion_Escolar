@@ -3,242 +3,238 @@
 {% block titulo %} Portal Profesores {% endblock %}
 
 {% block main %}
-<div class="flex flex-col xl:flex-row flex-1">
-    <!-- Left Sidebar Navigation -->
-        <aside class="w-full xl:w-72 border-r border-slate-200 dark:border-slate-800 bg-white dark:bg-background-dark p-6  lg:block">
-            <div class="flex flex-col gap-8">
-                <nav class="flex flex-col gap-2">
-                    <p class="px-3 text-xs font-semibold uppercase tracking-wider text-slate-400">Menú Principal</p>
-                    <a class="flex items-center gap-3 rounded-xl px-3 py-2 text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors" href="{% url 'agregar_profesor' %}">
-                    <span class="material-symbols-outlined">person_add</span>
-                    <span class="text-sm font-medium">Añadir Profesor</span>
+<main class="grid grid-cols-1 md:grid-cols-12 gap-0 min-h-[calc(100vh-64px)]">
+    <aside class="md:col-span-3 lg:col-span-2 border-r border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 p-4">
+        <div class="flex flex-col h-full justify-between">
+            <div class="flex flex-col gap-6">
+                <div class="px-3">
+                    <p class="text-xs font-bold text-slate-400 uppercase tracking-widest">Gestión de Profesores</p>
+                </div>
+                <nav class="flex flex-col gap-1">
+                    <a class="flex items-center gap-3 px-3 py-3 rounded-xl bg-primary/10 text-primary font-semibold" href="#">
+                        <span class="material-symbols-outlined">dashboard</span>
+                        <span class="text-sm">Vista General</span>
                     </a>
-                    <a class="flex items-center gap-3 rounded-xl bg-primary/10 px-3 py-2 text-primary" href="{% url 'lista_profesores' %}">
-                    <span class="material-symbols-outlined">group</span>
-                    <span class="text-sm font-bold">Lista de Profesores</span>
+                    <a class="flex items-center gap-3 px-3 py-3 rounded-xl text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800 transition-all group" href="{% url 'lista_profesores' %}">
+                        <span class="material-symbols-outlined group-hover:text-primary">badge</span>
+                        <span class="text-sm">Listar Profesores</span>
                     </a>
-                    <a class="flex items-center gap-3 rounded-xl px-3 py-2 text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors" href="#">
-                    <span class="material-symbols-outlined">calendar_today</span>
-                    <span class="text-sm font-medium">Horarios</span>
+                    <a class="flex items-center gap-3 px-3 py-3 rounded-xl text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800 transition-all group" href="{% url 'agregar_profesor' %}">
+                        <span class="material-symbols-outlined group-hover:text-primary">person_add</span>
+                        <span class="text-sm">Agregar Profesor</span>
                     </a>
-                    <a class="flex items-center gap-3 rounded-xl px-3 py-2 text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors" href="#">
-                    <span class="material-symbols-outlined">assignment</span>
-                    <span class="text-sm font-medium">Asignaturas</span>
+                    <a class="flex items-center gap-3 px-3 py-3 rounded-xl text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800 transition-all group" href="#">
+                        <span class="material-symbols-outlined group-hover:text-primary">assignment</span>
+                        <span class="text-sm">Asignar Cursos</span>
+                    </a>
+                    <a class="flex items-center gap-3 px-3 py-3 rounded-xl text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800 transition-all group" href="#">
+                        <span class="material-symbols-outlined group-hover:text-primary">calendar_month</span>
+                        <span class="text-sm">Consultar Horarios</span>
                     </a>
                 </nav>
-                <nav class="flex flex-col gap-2">
-                    <p class="px-3 text-xs font-semibold uppercase tracking-wider text-slate-400">Informes</p>
-                    <a class="flex items-center gap-3 rounded-xl px-3 py-2 text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors" href="#">
-                    <span class="material-symbols-outlined">bar_chart</span>
-                    <span class="text-sm font-medium">Estadísticas</span>
+                <div class="px-3 mt-4">
+                    <p class="text-xs font-bold text-slate-400 uppercase tracking-widest">Seguimiento</p>
+                </div>
+                <nav class="flex flex-col gap-1">
+                    <a class="flex items-center gap-3 px-3 py-3 rounded-xl text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800 transition-all group" href="#">
+                        <span class="material-symbols-outlined group-hover:text-primary">fact_check</span>
+                        <span class="text-sm">Asistencia Docente</span>
                     </a>
-                    <a class="flex items-center gap-3 rounded-xl px-3 py-2 text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors" href="#">
-                    <span class="material-symbols-outlined">download</span>
-                    <span class="text-sm font-medium">Exportar Datos</span>
+                    <a class="flex items-center gap-3 px-3 py-3 rounded-xl text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800 transition-all group" href="#">
+                        <span class="material-symbols-outlined group-hover:text-primary">analytics</span>
+                        <span class="text-sm">Evaluaciones</span>
                     </a>
                 </nav>
             </div>
-        </aside>
-    <!-- Central Content Area -->
-        <main class="flex-1 bg-background-light dark:bg-background-dark p-8">
-            <div class="mb-8 flex flex-wrap items-center justify-between gap-4">
-                <div>
-                    <h1 class="text-3xl font-black tracking-tight">Gestión de Profesores</h1>
-                    <p class="mt-1 text-slate-500 dark:text-slate-400">Administre la información y horarios de su personal docente.</p>
+            <button class="w-full flex items-center justify-center gap-2 rounded-xl h-12 px-4 bg-primary text-white text-sm font-bold tracking-wide shadow-lg shadow-primary/30 hover:bg-primary/90 transition-all">
+                <span class="material-symbols-outlined">add_circle</span>
+                <span>Nuevo Registro</span>
+            </button>
+        </div>
+    </aside>
+    <section class="md:col-span-6 lg:col-span-7 p-6 overflow-y-auto">
+        <div class="max-w-5xl mx-auto space-y-8">
+            <div class="flex flex-col gap-1">
+                <h1 class="text-3xl font-black text-slate-900 dark:text-slate-100">Dashboard de Profesores</h1>
+                <p class="text-slate-500 dark:text-slate-400">Panel administrativo para la gestión y seguimiento del cuerpo docente.</p>
+            </div>
+            <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+                <div class="bg-white dark:bg-slate-900 p-6 rounded-xl border border-slate-200 dark:border-slate-800 shadow-sm flex flex-col gap-2">
+                    <div class="flex items-center justify-between">
+                        <span class="text-slate-500 text-sm font-medium">Total Profesores</span>
+                        <span class="material-symbols-outlined text-primary bg-primary/10 p-2 rounded-lg">supervisor_account</span>
+                    </div>
+                    <p class="text-3xl font-bold text-slate-900 dark:text-slate-100">84</p>
+                    <div class="flex items-center gap-1 text-emerald-600 text-sm font-semibold">
+                        <span class="material-symbols-outlined text-sm">trending_up</span>
+                        <span>+3 este ciclo</span>
+                    </div>
                 </div>
-                <div class="flex gap-3">
-                    <a class="flex items-center gap-3 rounded-xl px-3 py-2 text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors" href="{% url 'agregar_profesor' %}">
-                            <span class="material-symbols-outlined">person_add</span>
-                            <span class="text-sm font-medium">Nuevo Profesor</span>
-                    </a>
+                <div class="bg-white dark:bg-slate-900 p-6 rounded-xl border border-slate-200 dark:border-slate-800 shadow-sm flex flex-col gap-2">
+                    <div class="flex items-center justify-between">
+                        <span class="text-slate-500 text-sm font-medium">Asistencia Docente Hoy</span>
+                        <span class="material-symbols-outlined text-emerald-500 bg-emerald-500/10 p-2 rounded-lg">verified_user</span>
+                    </div>
+                    <p class="text-3xl font-bold text-slate-900 dark:text-slate-100">98.5%</p>
+                    <div class="flex items-center gap-1 text-emerald-600 text-sm font-semibold">
+                        <span class="material-symbols-outlined text-sm">check_circle</span>
+                        <span>82 presentes</span>
+                    </div>
+                </div>
+                <div class="bg-white dark:bg-slate-900 p-6 rounded-xl border border-slate-200 dark:border-slate-800 shadow-sm flex flex-col gap-2">
+                    <div class="flex items-center justify-between">
+                        <span class="text-slate-500 text-sm font-medium">Cursos Activos</span>
+                        <span class="material-symbols-outlined text-amber-500 bg-amber-500/10 p-2 rounded-lg">auto_stories</span>
+                    </div>
+                    <p class="text-3xl font-bold text-slate-900 dark:text-slate-100">142</p>
+                    <div class="flex items-center gap-1 text-slate-500 text-sm font-medium">
+                        <span class="material-symbols-outlined text-sm">schedule</span>
+                        <span>Prom. 4/profesor</span>
+                    </div>
                 </div>
             </div>
-            <!-- Teacher Table -->
-            <div class="overflow-hidden rounded-2xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-background-dark shadow-sm">
+            <div class="bg-white dark:bg-slate-900 rounded-xl border border-slate-200 dark:border-slate-800 shadow-sm overflow-hidden">
+                <div class="px-6 py-4 border-b border-slate-200 dark:border-slate-800 flex justify-between items-center">
+                    <h3 class="font-bold text-lg">Actividad Docente Reciente</h3>
+                    <button class="text-primary text-sm font-semibold hover:underline">Ver bitácora</button>
+                </div>
                 <div class="overflow-x-auto">
-
-                    <!--<table class="w-full text-left">
-                        <thead>
-                            <tr class="bg-slate-50 dark:bg-slate-800/50">
-                            <th class="px-6 py-4 text-xs font-bold uppercase tracking-wider text-slate-500">Profesor</th>
-                            <th class="px-6 py-4 text-xs font-bold uppercase tracking-wider text-slate-500">Departamento</th>
-                            <th class="px-6 py-4 text-xs font-bold uppercase tracking-wider text-slate-500">Estado</th>
-                            <th class="px-6 py-4 text-xs font-bold uppercase tracking-wider text-slate-500">Carga Horaria</th>
-                            <th class="px-6 py-4 text-xs font-bold uppercase tracking-wider text-slate-500">Acciones</th>
+                    <table class="w-full text-left text-sm">
+                        <thead class="bg-slate-50 dark:bg-slate-800 text-slate-500 uppercase text-xs">
+                            <tr>
+                            <th class="px-6 py-3 font-semibold">Profesor</th>
+                            <th class="px-6 py-3 font-semibold">Actividad</th>
+                            <th class="px-6 py-3 font-semibold">Asignatura</th>
+                            <th class="px-6 py-3 font-semibold">Fecha</th>
+                            <th class="px-6 py-3 font-semibold">Estado</th>
                             </tr>
                         </thead>
                         <tbody class="divide-y divide-slate-100 dark:divide-slate-800">
-                            <tr class="hover:bg-slate-50 dark:hover:bg-slate-800/30 transition-colors">
+                            <tr class="hover:bg-slate-50 dark:hover:bg-slate-800/50 transition-colors">
                                 <td class="px-6 py-4">
-                                    <div class="flex items-center gap-3">
-                                    <div class="h-10 w-10 rounded-full bg-primary/10 text-primary flex items-center justify-center font-bold">JP</div>
-                                    <div>
-                                    <p class="text-sm font-bold">Dr. Juan Pérez</p>
-                                    <p class="text-xs text-slate-500">juan.perez@sge.edu</p>
-                                    </div>
-                                    </div>
-                                </td>
-                                <td class="px-6 py-4">
-                                 <span class="rounded-lg bg-blue-50 dark:bg-blue-900/20 px-2 py-1 text-xs font-medium text-blue-700 dark:text-blue-300">Matemáticas</span>
-                                </td>
-                                <td class="px-6 py-4">
-                                    <div class="flex items-center gap-2">
-                                        <span class="h-2 w-2 rounded-full bg-emerald-500"></span>
-                                        <span class="text-sm font-medium text-emerald-600 dark:text-emerald-400">Activo</span>
-                                    </div>
-                                </td>
-                                <td class="px-6 py-4 text-sm font-medium">18h / sem</td>
-                                <td class="px-6 py-4">
-                                    <button class="text-primary hover:text-primary/80 font-bold text-sm">Editar</button>
-                                </td>
-                            </tr>
-                            <tr class="hover:bg-slate-50 dark:hover:bg-slate-800/30 transition-colors">
-                                <td class="px-6 py-4">
-                                    <div class="flex items-center gap-3">
-                                        <div class="h-10 w-10 rounded-full bg-primary/10 text-primary flex items-center justify-center font-bold">EG</div>
-                                            <div>
-                                                <p class="text-sm font-bold">Dra. Elena Gómez</p>
-                                                <p class="text-xs text-slate-500">elena.gomez@sge.edu</p>
-                                            </div>
-                                    </div>
-                                </td>
-                                <td class="px-6 py-4">
-                                    <span class="rounded-lg bg-purple-50 dark:bg-purple-900/20 px-2 py-1 text-xs font-medium text-purple-700 dark:text-purple-300">Ciencias</span>
-                                </td>
-                                <td class="px-6 py-4">
-                                    <div class="flex items-center gap-2">
-                                        <span class="h-2 w-2 rounded-full bg-emerald-500"></span>
-                                        <span class="text-sm font-medium text-emerald-600 dark:text-emerald-400">Activo</span>
-                                    </div>
-                                </td>
-                                <td class="px-6 py-4 text-sm font-medium">22h / sem</td>
-                                <td class="px-6 py-4">
-                                    <button class="text-primary hover:text-primary/80 font-bold text-sm">Editar</button>
-                                </td>
-                            </tr>
-                            <tr class="hover:bg-slate-50 dark:hover:bg-slate-800/30 transition-colors">
-                                <td class="px-6 py-4">
-                                    <div class="flex items-center gap-3">
-                                        <div class="h-10 w-10 rounded-full bg-primary/10 text-primary flex items-center justify-center font-bold">RD</div>
-                                        <div>
-                                            <p class="text-sm font-bold">Lic. Roberto Díaz</p>
-                                            <p class="text-xs text-slate-500">roberto.diaz@sge.edu</p>
-                                        </div>
-                                    </div>
-                                </td>
-                                <td class="px-6 py-4">
-                                    <span class="rounded-lg bg-orange-50 dark:bg-orange-900/20 px-2 py-1 text-xs font-medium text-orange-700 dark:text-orange-300">Historia</span>
-                                </td>
-                                <td class="px-6 py-4">
-                                    <div class="flex items-center gap-2">
-                                    <span class="h-2 w-2 rounded-full bg-amber-500"></span>
-                                    <span class="text-sm font-medium text-amber-600 dark:text-amber-400">Licencia</span>
+                                <div class="flex items-center gap-3">
+                                <div class="size-8 rounded-full bg-slate-200 flex items-center justify-center text-[10px]" data-alt="Profesor Roberto Sosa">RS</div>
+                                <span class="font-medium">Roberto Sosa</span>
                                 </div>
                                 </td>
-                                <td class="px-6 py-4 text-sm font-medium">0h / sem</td>
+                                <td class="px-6 py-4">Carga de Calificaciones</td>
+                                <td class="px-6 py-4">Matemáticas Avanzadas</td>
+                                <td class="px-6 py-4 text-slate-500">Hoy, 11:20 AM</td>
                                 <td class="px-6 py-4">
-                                     <button class="text-primary hover:text-primary/80 font-bold text-sm">Editar</button>
+                                <span class="px-2 py-1 rounded-full bg-emerald-100 text-emerald-700 text-xs font-bold uppercase">Completado</span>
                                 </td>
                             </tr>
-                            <tr class="hover:bg-slate-50 dark:hover:bg-slate-800/30 transition-colors">
+                            <tr class="hover:bg-slate-50 dark:hover:bg-slate-800/50 transition-colors">
                                 <td class="px-6 py-4">
-                                    <div class="flex items-center gap-3">
-                                        <div class="h-10 w-10 rounded-full bg-primary/10 text-primary flex items-center justify-center font-bold">SR</div>
-                                        <div>
-                                            <p class="text-sm font-bold">Mtra. Sofía Ruiz</p>
-                                            <p class="text-xs text-slate-500">sofia.ruiz@sge.edu</p>
-                                        </div>
-                                    </div>
+                                <div class="flex items-center gap-3">
+                                <div class="size-8 rounded-full bg-slate-200 flex items-center justify-center text-[10px]" data-alt="Profesora Elena Mora">EM</div>
+                                <span class="font-medium">Elena Mora</span>
+                                </div>
                                 </td>
+                                <td class="px-6 py-4">Pase de Lista</td>
+                                <td class="px-6 py-4">Literatura Universal</td>
+                                <td class="px-6 py-4 text-slate-500">Hoy, 09:45 AM</td>
                                 <td class="px-6 py-4">
-                                <span class="rounded-lg bg-pink-50 dark:bg-pink-900/20 px-2 py-1 text-xs font-medium text-pink-700 dark:text-pink-300">Idiomas</span>
+                                <span class="px-2 py-1 rounded-full bg-emerald-100 text-emerald-700 text-xs font-bold uppercase">Completado</span>
                                 </td>
+                            </tr>
+                            <tr class="hover:bg-slate-50 dark:hover:bg-slate-800/50 transition-colors">
                                 <td class="px-6 py-4">
-                                    <div class="flex items-center gap-2">
-                                        <span class="h-2 w-2 rounded-full bg-emerald-500"></span>
-                                        <span class="text-sm font-medium text-emerald-600 dark:text-emerald-400">Activo</span>
-                                    </div>
+                                <div class="flex items-center gap-3">
+                                <div class="size-8 rounded-full bg-slate-200 flex items-center justify-center text-[10px]" data-alt="Profesor Miguel Ruiz">MR</div>
+                                <span class="font-medium">Miguel Ruiz</span>
+                                </div>
                                 </td>
-                                <td class="px-6 py-4 text-sm font-medium">20h / sem</td>
+                                <td class="px-6 py-4">Subida de Plan Mensual</td>
+                                <td class="px-6 py-4">Física I</td>
+                                <td class="px-6 py-4 text-slate-500">Ayer, 15:30 PM</td>
                                 <td class="px-6 py-4">
-                                 <button class="text-primary hover:text-primary/80 font-bold text-sm">Editar</button>
+                                <span class="px-2 py-1 rounded-full bg-amber-100 text-amber-700 text-xs font-bold uppercase">Revision</span>
+                                </td>
+                            </tr>
+                            <tr class="hover:bg-slate-50 dark:hover:bg-slate-800/50 transition-colors">
+                                <td class="px-6 py-4">
+                                <div class="flex items-center gap-3">
+                                <div class="size-8 rounded-full bg-slate-200 flex items-center justify-center text-[10px]" data-alt="Profesora Laura Gil">LG</div>
+                                <span class="font-medium">Laura Gil</span>
+                                </div>
+                                </td>
+                                <td class="px-6 py-4">Registro de Incidencia</td>
+                                <td class="px-6 py-4">Química General</td>
+                                <td class="px-6 py-4 text-slate-500">Ayer, 13:10 PM</td>
+                                <td class="px-6 py-4">
+                                <span class="px-2 py-1 rounded-full bg-blue-100 text-blue-700 text-xs font-bold uppercase">Informado</span>
                                 </td>
                             </tr>
                         </tbody>
-                    </table> -->
+                    </table>
                 </div>
             </div>
-        </main>
-    <!-- Right Sidebar Widgets -->
-        <aside class="w-full  p-8 flex flex-col gap-6  xl:w-96">
-            <div class="rounded-2xl bg-white dark:bg-background-dark border border-slate-200 dark:border-slate-800 p-5 shadow-sm">
-                <h3 class="text-lg font-bold mb-4 flex items-center gap-2">
-                <span class="material-symbols-outlined text-primary">analytics</span>
-                                        Datos Recientes
-                                    </h3>
+        </div>
+    </section>
+    <aside class="md:col-span-3 lg:col-span-3 border-l border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 p-6 overflow-y-auto">
+        <div class="space-y-6">
+            <div class="flex items-center justify-between">
+                <h3 class="text-lg font-bold">Avisos Docentes</h3>
+                <span class="material-symbols-outlined text-slate-400">campaign</span>
+            </div>
+            <div class="space-y-4">
+                <div class="p-4 rounded-xl bg-slate-50 dark:bg-slate-800/50 border border-slate-100 dark:border-slate-800 hover:border-primary transition-all cursor-pointer">
+                    <div class="flex justify-between items-start mb-2">
+                        <span class="px-2 py-0.5 rounded bg-primary text-white text-[10px] font-bold uppercase">Urgente</span>
+                        <span class="text-xs text-slate-500">Hoy</span>
+                    </div>
+                    <h4 class="text-sm font-bold mb-1">Cierre de Actas de Examen</h4>
+                    <p class="text-xs text-slate-500 leading-relaxed">Docentes: El plazo para subir notas finales de recuperación vence hoy a las 18:00h.</p>
+                </div>
+                <div class="p-4 rounded-xl bg-slate-50 dark:bg-slate-800/50 border border-slate-100 dark:border-slate-800 hover:border-primary transition-all cursor-pointer">
+                    <div class="flex justify-between items-start mb-2">
+                        <span class="px-2 py-0.5 rounded bg-amber-500 text-white text-[10px] font-bold uppercase">Capacitación</span>
+                        <span class="text-xs text-slate-500">18 Oct</span>
+                    </div>
+                    <h4 class="text-sm font-bold mb-1">Taller de Nuevas Herramientas</h4>
+                    <p class="text-xs text-slate-500 leading-relaxed">Uso de plataformas interactivas en el aula. Asistencia obligatoria en Auditorio.</p>
+                </div>
+                <div class="p-4 rounded-xl bg-slate-50 dark:bg-slate-800/50 border border-slate-100 dark:border-slate-800 hover:border-primary transition-all cursor-pointer">
+                    <div class="flex justify-between items-start mb-2">
+                        <span class="px-2 py-0.5 rounded bg-emerald-500 text-white text-[10px] font-bold uppercase">RRHH</span>
+                        <span class="text-xs text-slate-500">15 Oct</span>
+                    </div>
+                    <h4 class="text-sm font-bold mb-1">Actualización de Seguros</h4>
+                    <p class="text-xs text-slate-500 leading-relaxed">Favor de pasar por administración para actualizar sus beneficiarios médicos.</p>
+                </div>
+            </div>
+            <button class="w-full py-3 text-sm font-bold text-slate-500 border-2 border-dashed border-slate-200 dark:border-slate-800 rounded-xl hover:text-primary hover:border-primary transition-all">
+                                Ver más circulares
+                            </button>
+            <div class="pt-6 border-t border-slate-200 dark:border-slate-800">
+                <h4 class="text-sm font-bold mb-4">Agenda Docente</h4>
                 <div class="space-y-4">
-                    <div class="flex items-center justify-between">
-                        <p class="text-sm text-slate-500 dark:text-slate-400">Profesores Totales</p>
-                        <span class="text-lg font-black text-primary">124</span>
-                    </div>
-                    <div class="flex items-center justify-between">
-                        <p class="text-sm text-slate-500 dark:text-slate-400">Departamentos</p>
-                        <span class="text-lg font-black text-slate-900 dark:text-slate-100">12</span>
-                    </div>
-                    <div class="flex items-center justify-between">
-                        <p class="text-sm text-slate-500 dark:text-slate-400">Horas Semanales</p>
-                        <span class="text-lg font-black text-slate-900 dark:text-slate-100">1,420</span>
-                    </div>
-                </div>
-            </div>
-            <div class="rounded-2xl bg-white dark:bg-background-dark border border-slate-200 dark:border-slate-800 p-5 shadow-sm">
-                <h3 class="text-lg font-bold mb-4 flex items-center gap-2">
-                <span class="material-symbols-outlined text-primary">history</span>
-                                        Cambios Recientes
-                                    </h3>
-                <div class="space-y-4">
-                    <div class="flex gap-3 border-l-2 border-primary pl-3">
-                        <div>
-                            <p class="text-sm font-bold">Nuevo profesor registrado</p>
-                            <p class="text-xs text-slate-500">Dr. Juan Pérez • Hace 2h</p>
+                    <div class="flex gap-4">
+                        <div class="flex flex-col items-center justify-center size-12 bg-primary/10 rounded-lg text-primary">
+                            <span class="text-lg font-bold leading-none">16</span>
+                            <span class="text-[10px] font-bold uppercase">Oct</span>
+                        </div>
+                        <div class="flex-1">
+                            <p class="text-sm font-bold">Consejo Técnico Académico</p>
+                            <p class="text-xs text-slate-500">14:00 PM - Sala Juntas</p>
                         </div>
                     </div>
-                    <div class="flex gap-3 border-l-2 border-slate-200 dark:border-slate-700 pl-3">
-                        <div>
-                            <p class="text-sm font-bold">Horario actualizado</p>
-                            <p class="text-xs text-slate-500">Depto. Ciencias • Hace 4h</p>
+                    <div class="flex gap-4">
+                        <div class="flex flex-col items-center justify-center size-12 bg-primary/10 rounded-lg text-primary">
+                            <span class="text-lg font-bold leading-none">22</span>
+                            <span class="text-[10px] font-bold uppercase">Oct</span>
                         </div>
-                    </div>
-                    <div class="flex gap-3 border-l-2 border-slate-200 dark:border-slate-700 pl-3">
-                        <div>
-                            <p class="text-sm font-bold">Solicitud de licencia</p>
-                            <p class="text-xs text-slate-500">Lic. Roberto Díaz • Ayer</p>
-                        </div>
-                    </div>
-                    <div class="flex gap-3 border-l-2 border-slate-200 dark:border-slate-700 pl-3">
-                        <div>
-                            <p class="text-sm font-bold">Contrato renovado</p>
-                            <p class="text-xs text-slate-500">Mtra. Sofía Ruiz • 2 días</p>
+                        <div class="flex-1">
+                            <p class="text-sm font-bold">Entrega de Planificaciones</p>
+                            <p class="text-xs text-slate-500">Módulo III - Plataforma</p>
                         </div>
                     </div>
                 </div>
-                <button class="mt-4 w-full text-center text-xs font-bold text-primary hover:underline">Ver todo el historial</button>
             </div>
-            <!-- Calendar Mini Widget -->
-            <div class="rounded-2xl bg-primary p-5 text-white shadow-lg shadow-primary/30">
-                <div class="flex items-center justify-between mb-4">
-                    <p class="font-bold text-sm uppercase tracking-wider">Hoy</p>
-                <span class="material-symbols-outlined">today</span>
-                </div>
-                    <p class="text-3xl font-black mb-1">12 Oct</p>
-                    <p class="text-sm opacity-90 mb-4">Reunión de Facultad a las 15:00</p>
-                <button class="w-full rounded-lg bg-white/20 py-2 text-xs font-bold transition-colors hover:bg-white/30">
-                                        Ver Agenda
-                                    </button>
-            </div>
-        </aside>
-    </div>
-</div>
+        </div>
+    </aside>
+</main>
 
 
 {% endblock %}
